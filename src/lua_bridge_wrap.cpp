@@ -185,7 +185,7 @@ void expose_lua_base()
     LuaBase.def(
         "get_string",
         &ILuaBase::GetString,
-        (arg("stack_pos")=-1)
+        (arg("stack_pos")=-1, arg("out_length")=object())
     );
     
     LuaBase.def(
