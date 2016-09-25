@@ -54,8 +54,8 @@ struct void_ptr_from_python
 	static void* convert(PyObject* pObj)
 	{
         object obj = object(handle<>(borrowed(pObj)));
-		unsigned long ulAddr = extract<unsigned long>(obj.attr("address"));
-		return (void *) ulAddr;
+        unsigned long ulAddr = extract<unsigned long>(obj.attr("address"));
+        return (void *) ulAddr;
 	}
 };
 

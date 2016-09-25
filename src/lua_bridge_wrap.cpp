@@ -47,7 +47,7 @@ void expose_user_data();
 BOOST_PYTHON_MODULE(_lua_bridge)
 {
     // Initialize converters
-	InitConverters();
+    InitConverters();
     
     // Expose classes
     expose_lua_base();
