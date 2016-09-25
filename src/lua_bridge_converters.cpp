@@ -29,34 +29,34 @@ using namespace boost::python;
 // ============================================================================
 struct void_ptr_to_python
 {
-	void_ptr_to_python()
-	{
-		to_python_converter< void*, void_ptr_to_python >();
-	}
+    void_ptr_to_python()
+    {
+        to_python_converter< void*, void_ptr_to_python >();
+    }
 
-	static PyObject* convert(void* pPtr)
-	{
+    static PyObject* convert(void* pPtr)
+    {
         static object Pointer = import("memory").attr("Pointer");
-		return incref(Pointer((unsigned long) pPtr).ptr());
-	}
+        return incref(Pointer((unsigned long) pPtr).ptr());
+    }
 };
 
 struct void_ptr_from_python
 {
-	void_ptr_from_python()
-	{
-		boost::python::converter::registry::insert(
-			&convert,
-			boost::python::type_id<void>()
-		);
-	}
+    void_ptr_from_python()
+    {
+        boost::python::converter::registry::insert(
+            &convert,
+            boost::python::type_id<void>()
+        );
+    }
 
-	static void* convert(PyObject* pObj)
-	{
+    static void* convert(PyObject* pObj)
+    {
         object obj = object(handle<>(borrowed(pObj)));
         unsigned long ulAddr = extract<unsigned long>(obj.attr("address"));
         return (void *) ulAddr;
-	}
+    }
 };
 
 
