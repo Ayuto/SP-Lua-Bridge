@@ -18,7 +18,7 @@ __all__ = (
     'Special',
     'LuaType',
     'LuaState',
-    'UserData'
+    'UserData',
     'lua',
     'push',
     'get',
